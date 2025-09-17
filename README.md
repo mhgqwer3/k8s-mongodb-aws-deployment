@@ -44,28 +44,28 @@ Deploy the resources in the following order:
 
 ```bash
 # 1. Storage Class
-kubectl apply -f mongo-sc.txt
+kubectl apply -f mongo-sc.yaml
 
-# 2. Secret (update with your base64 encoded credentials)
-kubectl apply -f mongo-secret.txt
+# 2. Secret (credentials are already base64 encoded)
+kubectl apply -f mongo-secret.yaml
 
 # 3. ConfigMap
-kubectl apply -f mongo.config-map.txt
+kubectl apply -f mongo.config-map.yaml
 
 # 4. Persistent Volume Claim
-kubectl apply -f mongo-pvc.txt
+kubectl apply -f mongo-pvc.yaml
 
 # 5. MongoDB Service
-kubectl apply -f mongo-svc.txt
+kubectl apply -f mongo-svc.yaml
 
 # 6. MongoDB Deployment
-kubectl apply -f mongodb-deployment.txt
+kubectl apply -f mongodb-deployment.yaml
 
 # 7. Mongo Express Service
-kubectl apply -f mongo-express-svc.txt
+kubectl apply -f mongo-express-svc.yaml
 
 # 8. Mongo Express Deployment
-kubectl apply -f mongo-express-deployment.txt
+kubectl apply -f mongo-express-deployment.yaml
 ```
 
 ### 3. Access Mongo Express
@@ -94,8 +94,8 @@ echo -n 'your-password' | base64
 
 ### Default Credentials
 
-- **Username**: `username-secret` (update this)
-- **Password**: `password-secret` (update this)
+- **Username**: `admin`
+- **Password**: `password123`
 
 ## 🏷️ AWS Optimizations
 
@@ -161,14 +161,14 @@ kubectl get storageclass
 To remove all resources:
 
 ```bash
-kubectl delete -f mongo-express-deployment.txt
-kubectl delete -f mongo-express-svc.txt
-kubectl delete -f mongodb-deployment.txt
-kubectl delete -f mongo-svc.txt
-kubectl delete -f mongo-pvc.txt
-kubectl delete -f mongo.config-map.txt
-kubectl delete -f mongo-secret.txt
-kubectl delete -f mongo-sc.txt
+kubectl delete -f mongo-express-deployment.yaml
+kubectl delete -f mongo-express-svc.yaml
+kubectl delete -f mongodb-deployment.yaml
+kubectl delete -f mongo-svc.yaml
+kubectl delete -f mongo-pvc.yaml
+kubectl delete -f mongo.config-map.yaml
+kubectl delete -f mongo-secret.yaml
+kubectl delete -f mongo-sc.yaml
 ```
 
 ## 📝 Notes
